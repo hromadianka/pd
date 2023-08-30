@@ -159,6 +159,14 @@ main {
         margin-top: 15px;
         padding: 1.5% 2%;
     }
+
+    .publication p {
+        margin: 0;
+    }
+
+    main img {
+        width: 45%;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -168,6 +176,11 @@ main {
         margin-top: 40px;
         padding: 2.5%;
     }
+
+    main img {
+            width: 100%;
+            box-sizing: border-box;
+        }
 
     body {
         padding-left: 5%;
