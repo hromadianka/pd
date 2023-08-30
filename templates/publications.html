@@ -27,7 +27,7 @@
         <div class="publication">
             <a href="/publications/{{publication.id}}"><img src="{{publication.image.url}}" alt="" /></a>
             <a href="/publications/{{publication.id}}"><h2>{{publication.heading}}</h2></a>
-            <p>{{publication.text|truncatechars:300}}</p>
+            <p>{{publication.text|truncatechars:300|linebreaks}}</p>
         </div>
         {% endfor %}
     </main>
