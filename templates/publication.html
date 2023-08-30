@@ -1,0 +1,41 @@
+﻿{% load static %}
+
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Пряма Дія: Публікації</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="" /></a>
+        <ul>
+            <li><a href="/">Про нас</a></li>
+            <li><a href="/publications" class="active">Публікації</a></li>
+        </ul>
+        <form action="https://forms.gle/nzo8eoXaxBobfbyo8/"><button>ВСТУПИТИ</button></form>
+    </header>
+    <main>
+        <h1>{{publication.heading}}</h1>
+        <img src="{{publication.image.url}}" alt="" class="publication-full-img" />
+        <p>{{publication.text}}</p>
+    </main>
+    <footer>
+        <div>
+            <p>Незалежна студентська профспілка "Пряма Дія"</p>
+        </div>
+        <div class="links">
+            <a href="https://www.facebook.com/priama.diia/"><img src="{% static 'img/footer-facebook.png' %}" alt="" /></a>
+            <a href="https://t.me/priama_diia"><img src="{% static 'img/footer-telegram.png' %}" alt="" /></a>
+            <a href="https://www.instagram.com/priama_diia/"><img src="{% static 'img/footer-instagram.png' %}" alt="" /></a>
+            <a href="https://twitter.com/PriamaDiia/"><img src="{% static 'img/footer-twitter.png' %}" alt="" /></a>
+        </div>
+    </footer>
+</body>
+</html>
