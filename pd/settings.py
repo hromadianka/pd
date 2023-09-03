@@ -135,7 +135,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AWS_ACCESS_KEY_ID = 'AKIAZLPLASJZLE3WTC7V'
 AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'PRIAMA-DIIA'
+AWS_STORAGE_BUCKET_NAME = 'priama-diia'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 MEDIA_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
