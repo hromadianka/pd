@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -133,8 +134,8 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AWS_ACCESS_KEY_ID = 'AKIAZLPLASJZODBLCCO4'
-AWS_SECRET_ACCESS_KEY = '6+YdiYVwT3V+Zl/lxgyf2X3r4QRxF6J2iSw0C7whMJH7stetFwB+'
+AWS_ACCESS_KEY_ID = 'AKIAZLPLASJZAXXIT5XG'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'priama-diia'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
