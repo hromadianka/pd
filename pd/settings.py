@@ -129,11 +129,11 @@ STATICFILES_DIRS = (
 )
 
 
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+AWS_ACCESS_KEY_ID = 'AKIAZLPLASJZLE3WTC7V'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'PRIAMA-DIIA'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
