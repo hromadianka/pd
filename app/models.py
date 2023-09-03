@@ -13,4 +13,4 @@ class Publication (models.Model):
     image = models.ImageField(upload_to='media/', height_field=None, width_field=None)
 
     def __str__(self):
-        return str(self.id)
+        return str(self.heading)
