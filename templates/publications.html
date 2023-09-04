@@ -25,7 +25,9 @@
         <h1>Публікації</h1>
         {% for publication in publications reversed %}
         <div class="publication">
-            <a href="/publications/{{publication.id}}"><img src="{{publication.image.url}}" alt="" /></a>
+            {% if publication.image %}
+            <a href="/publications/{{ publication.id }}"><img src="{{ publication.image.url }}" alt="" /></a>
+            {% endif %}
             <a href="/publications/{{publication.id}}"><h2>{% autoescape off %}{{publication.heading}}{% endautoescape %}</h2></a>
             <p>{% autoescape off %}{{publication.text|truncatechars:300|linebreaks}}{% endautoescape %}</p>
         </div>
