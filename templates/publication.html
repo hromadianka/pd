@@ -22,9 +22,9 @@
         <form action="https://forms.gle/nzo8eoXaxBobfbyo8/"><button>ВСТУПИТИ</button></form>
     </header>
     <main>
-        <h1>{{publication.heading}}</h1>
+        <h1>{{publication.heading|safe}}</h1>
         <img src="{{publication.image.url}}" alt="" class="publication-full-img" />
-        <p>{{publication.text|linebreaks}}</p>
+        <p>{{publication.text|linebreaks|safe}}</p>
     </main>
     <footer>
         <div>
