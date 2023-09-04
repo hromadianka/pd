@@ -41,19 +41,18 @@ def signin(request):
 @login_required(login_url='/signin')
 def publish(request):
     if request.method == 'POST':
-        # Перевіряємо наявність ключів у POST-запиті
-        if 'heading' in request.POST and 'text' in request.POST and 'image' in request.FILES:
-            heading = request.POST['heading']
-            text = request.POST['text']
+        heading = request.POST['heading']
+        text = request.POST['text']
+        
+        # Перевіряємо, чи вибраний файл у формі
+        if 'image' in request.FILES:
             image = request.FILES['image']
-
             publication = Publication.objects.create(heading=heading, text=text, image=image)
-            publication.save()
-
-            return redirect('/publications')
         else:
-            # Обробка, якщо один або декілька ключів відсутні
-            # Тут ви можете вивести помилку або зробити інші дії за вашим вибором.
-            pass
+            publication = Publication.objects.create(heading=heading, text=text)
+        
+        publication.save()
+
+        return redirect('/publications')
 
     return render(request, 'publish.html')
