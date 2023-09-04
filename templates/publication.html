@@ -22,9 +22,10 @@
         <form action="https://forms.gle/nzo8eoXaxBobfbyo8/"><button>ВСТУПИТИ</button></form>
     </header>
     <main>
-        <h1>{{ publication.heading|autoescape }}</h1>
+        <h1>{% autoescape off %}{{ publication.heading }}{% endautoescape %}</h1>
         <img src="{{ publication.image.url }}" alt="" class="publication-full-img" />
-        <p>{{ publication.text|linebreaks|autoescape }}</p>
+        <p>{% autoescape off %}{{ publication.text }}{% endautoescape %}</p>
+
     </main>
     <footer>
         <div>
