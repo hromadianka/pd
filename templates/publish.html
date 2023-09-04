@@ -26,10 +26,10 @@
         <form action="" method="POST" class="form" enctype="multipart/form-data">
             {% csrf_token %}
             <input class="form-input" placeholder="Заголовок" name="heading" type="text" />
-            <textarea class="form-textarea" placeholder="Текст публікації" name="text" type="text"></textarea>
+            <textarea class="form-textarea" placeholder="Текст публікації" name="text" id="editor" type="text"></textarea>
             <input class="form-input" placeholder="Зображення" name="image" type="file" accept="image/*" />
             <button class="form-button">Опублікувати</button>
-        </form>
+</form
     </main>
     <footer>
         <div>
@@ -42,5 +42,15 @@
             <a href="https://twitter.com/PriamaDiia/"><img src="{% static 'img/footer-twitter.png' %}" alt="" /></a>
         </div>
     </footer>
+<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: ['heading', '|', 'bold', 'italic', '|', 'link', '|', 'bulletedList', 'numberedList', 'blockQuote']
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 </body>
 </html>
