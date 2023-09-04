@@ -23,7 +23,7 @@
     </header>
     <main>
         <h1>Публікації</h1>
-        {% for publication in publications %}
+        {% for publication in publications reversed %}
         <div class="publication">
             <a href="/publications/{{publication.id}}"><img src="{{publication.image.url}}" alt="" /></a>
             <a href="/publications/{{publication.id}}"><h2>{{publication.heading}}</h2></a>
