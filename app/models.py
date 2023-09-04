@@ -6,11 +6,12 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-class Publication (models.Model):
+class Publication(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    heading = models.TextField(default='')
-    text = models.TextField(default='')
-    image = models.ImageField(upload_to='media/', height_field=None, width_field=None)
+    heading = models.TextField(default='', blank=True)
+    text = models.TextField(default='', blank=True)
+    image = models.ImageField(upload_to='media/', height_field=None, width_field=None, blank=True, null=True)
 
     def __str__(self):
         return str(self.heading)
+
