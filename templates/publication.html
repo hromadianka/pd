@@ -22,11 +22,11 @@
         <form action="https://forms.gle/nzo8eoXaxBobfbyo8/"><button>ВСТУПИТИ</button></form>
     </header>
     <main>
-        {% if publication.image %}
         <h1>{% autoescape off %}{{ publication.heading }}{% endautoescape %}</h1>
+        {% if publication.image %}
         <img src="{{ publication.image.url }}" alt="" class="publication-full-img" />
+         {% endif %}
         <p>{% autoescape off %}{{ publication.text }}{% endautoescape %}</p>
-        {% endif %}
     </main>
     <footer>
         <div>
