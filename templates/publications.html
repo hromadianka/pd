@@ -26,8 +26,8 @@
         {% for publication in publications reversed %}
         <div class="publication">
             <a href="/publications/{{publication.id}}"><img src="{{publication.image.url}}" alt="" /></a>
-            <a href="/publications/{{publication.id}}"><h2>{{publication.heading|safe}}</h2></a>
-            <p>{{publication.text|truncatechars:300|linebreaks|safe}}</p>
+            <a href="/publications/{{publication.id}}"><h2>{% autoescape off %}{{publication.heading}}{% endautoescape %}</h2></a>
+            <p>{% autoescape off %}{{publication.text|truncatechars:300|linebreaks}}{% endautoescape %}</p>
         </div>
         {% endfor %}
     </main>
