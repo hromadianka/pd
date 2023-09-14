@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["priama-diia-742d5ddc1d1a.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["priama-diia-742d5ddc1d1a.herokuapp.com", "127.0.0.1", "www.priama-diia.org"]
 
 
 # Application definition
