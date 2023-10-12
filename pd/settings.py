@@ -134,10 +134,13 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AWS_ACCESS_KEY_ID = 'AKIAZLPLASJZAXXIT5XG'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'priama-diia'
-AWS_S3_REGION_NAME = 'eu-north-1'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+GOOGLE_APPLICATION_CREDENTIALS = os.path.join(BASE_DIR, 'caramel-primer-353913-17f173a34016.json')
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+GS_PROJECT_ID = ‘caramel-primer-353913’
+GS_BUCKET_NAME = 'priama-diia'
+MEDIA_ROOT = "media/"
+UPLOAD_ROOT = 'media/uploads/'
+MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
