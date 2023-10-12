@@ -134,11 +134,6 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AWS_ACCESS_KEY_ID = 'AKIAZLPLASJZAXXIT5XG'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'priama-diia'
-AWS_S3_REGION_NAME = 'eu-north-1'
-
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'priama-diia'
 GS_PROJECT_ID = 'caramel-primer-353913'
