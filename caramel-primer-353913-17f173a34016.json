@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "caramel-primer-353913",
+  "private_key_id": "17f173a340165d3d29d708ebc5abb857526b3ef4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC+XGHNAbZXC65A\n18Vd3tQrDAHfuWt6oPisUeyIGAsmtAvwo+gILSL1lYTxoOV7qtZHyUkY9ai6QU+i\n0StkYCIS1cKJ6mu9bxHKx+SYKX9l83Yv2+cpcpjdTFlEqvULwDqqnZrAO+mohXhb\nkHY3O/REbyJteK2HI2oVFDlcisjxN8cwnNRWmiIl7zkSeEMdtL9P7qvXTJkqeMGC\nD0MYUU83eYY1rboIr0QooGuTjOWhIodhRWkiXscgE2YcZnNhiYA14r/Bq8KqcZ4a\n7UqwknvXbDRXZa5MFM2sqJEYJqfbqOX+jG0hi5DltBNM4Oilvu5bklRDrBzUU58N\nEgPXhmXrAgMBAAECggEAFWSCZSyNFkkswwK8nmj9RP0rdL38syJF7++g+kZhcm8H\nbHqvB8QyypCMCS+Aup4fSJ/5RAHPfWb7kRuamcQn8B/vpdofU4GY6UX/jY4UUBvF\nK2m2F7VWMoBzA8GGmlR3A1eE3ZeeEZ82QGwCrQBi2hH3N4A5WBeFw2qra5f5LwpY\n/fdsZcCqHeZJJBanJcQDqhbLIoPIG7bEChMiaJmaKe0Fu0y6yVbmpFxFhogMptPn\nxKbSH/Xc8psnsTo9kMiXGgL6XdjTMzOnTGAGqH6QOAKVRIThP4nl4Oo0I+MrhwDG\n25doCHRFJK1I5cgPlIqghJix1TB4uSks43GmEiRHYQKBgQDn284xWqAHtJBmguL+\ndjIoHqXW46BODre0+LUwG2FeqMmlZWfoFmEfGxYZbwYdIc18tSuPo9gf1QIk+Qo4\nLgAxxzl1BWCdmUgsBoHmUSKed5N4gMwcbTDKXr92g1W1PSLzIFvwAbQHHdEmLZjW\nyTHADpqQuH8hrFLVxBA1+o31sQKBgQDSLnQckKx9sedjocTqIJrWYXq0Bjy66S8j\nqCRsmyAFAxajPoMhyReJ++LAcJgNUxCLtor/dWtn1317zEqUtHO5m6viviEMzeiI\nf5H5MVa+dCcbCiRwqUmHiLhM39mfgSQtLkPT7CUQk/nzlcbA9NdADgMLrC+pGmGN\nuLQrX0UQWwKBgQDmIO0PX3vnKfkJRnA3UOmHmKPSHixGTaVZImH0VbjXU4CRgY0Y\ndt3/Gctdgyz2TU6/sLKD54PkVG/EcssJ596ZibwlwiibREC2Md9M0sshrl3ZBT2S\nGW6L7m7rGoA/W2cNGdkm5wng5l9pHWjOBvQyREx1yCmnKnstYWUVrpKogQKBgHGF\nP5dyGIgnP4fThuzBwX+K1OBJAiId8iT7GvlB69BpM5/mEqN73mfbkURJTAbeV3Bu\nnrKNc/55KEBmPd4FfP/B8ducv3MP/8lBxdDm8igZyklTeA0Vki5PDOQQf5UkBisU\n8vOSdw52Lil/OwNa+quRJdn3HSLjqc8G9OD8KuxDAoGBAM6qpNQH46g/p62foFWx\n0dui/ZUs4L8fL3rEn3xarLXUdsc5CHIB7ls74Kg7IWDXcMr2ngJPWgk8NZMKudac\njvZWrud34jJYfIn8IfyfvWl1dhJ1slqp0X7md+me5urQT8kWp0sh2LxN6yK1iuCp\ny9rNUfQRAEW2ybc7MEAbwz+L\n-----END PRIVATE KEY-----\n",
+  "client_email": "priama-diia@caramel-primer-353913.iam.gserviceaccount.com",
+  "client_id": "103774552863794697368",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/priama-diia%40caramel-primer-353913.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
