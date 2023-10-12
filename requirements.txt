@@ -11,3 +11,5 @@ whitenoise==6.5.0
 psycopg2
 django-storages
 boto3
+google-cloud-storage
+google-auth
