@@ -139,6 +139,9 @@ AWS_SECRET_ACCESS_KEY = 'nxPyl3vRqJIzv38E5j5s8D8dkg1t3GFqhEX/N5fH'
 AWS_STORAGE_BUCKET_NAME = 'priama-diia'
 AWS_S3_REGION_NAME = 'eu-north-1'
 
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'priama-diia'
+GS_PROJECT_ID = 'caramel-primer-353913'
+MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+
