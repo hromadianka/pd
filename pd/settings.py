@@ -136,7 +136,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-from google.oath2 import service_account
+from google.oauth2 import service_account
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'credential.json'))
 
