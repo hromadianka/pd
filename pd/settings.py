@@ -134,6 +134,7 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+GOOGLE_APPLICATION_CREDENTIALS = os.path.join(BASE_DIR, 'caramel-primer-353913-17f173a34016.json')
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'priama-diia'
 GS_PROJECT_ID = 'caramel-primer-353913'
