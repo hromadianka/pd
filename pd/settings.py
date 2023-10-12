@@ -136,7 +136,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-GOOGLE_APPLICATION_CREDENTIALS = os.path.join(BASE_DIR, 'caramel-primer-353913-17f173a34016.json')
+from google.oath2 import service_account
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, 'credential.json'))
+
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 GS_PROJECT_ID = 'caramel-primer-353913'
