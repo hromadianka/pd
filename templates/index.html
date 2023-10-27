@@ -23,11 +23,13 @@
     <main>
         <h1>Про нас</h1>
         <p>«Пряма дія» — це ліва студентська профспілка, яка поділяє принципи рівності, лібертарної педагогіки і виступає проти комерціалізації освіти.</p>
+        <div class="images">
         <img src="{% static 'img/map.jpg' %}" alt="" />
-        <br>
-        <img src="{% static 'img/protest.jpg' %}" alt="" />
-        <br>
-        <img src="{% static 'img/left-school.jpg' %}" alt="" />
+            <div>
+                <img src="{% static 'img/protest.jpg' %}" alt="" />
+                <img src="{% static 'img/left-school.jpg' %}" alt="" />
+            </div>
+        </div>
     </main>
     <footer>
         <div>
@@ -40,5 +42,18 @@
             <a href="https://twitter.com/PriamaDiia/"><img src="{% static 'img/footer-twitter.png' %}" alt="" /></a>
         </div>
     </footer>
+            <style>
+                @media (min-width: 1000px) {
+                    .images {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                    }
+                    .images > div {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+        </style>
 </body>
 </html>
