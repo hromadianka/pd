@@ -65,10 +65,6 @@ main {
     flex-grow: 1;
 }
 
-h2 a, h1 a {
-    text-decoration: none;
-}
-
 .publication {
     border: 1px solid grey;
 }
