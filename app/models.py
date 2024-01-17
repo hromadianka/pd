@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from django.contrib.auth import get_user_model
+from datetime import datetime
 
 # Create your models here.
 
@@ -12,7 +13,7 @@ class Publication(models.Model):
     text = models.TextField(default='', blank=True)
     image = models.ImageField(upload_to='media/', height_field=None, width_field=None, blank=True, null=True)
     topics = models.TextField(default='', blank=True)
-    date = models.DateTimeField() 
+    date = models.DateTimeField(default=datetime.now, blank=True) 
 
     def __str__(self):
         return str(self.heading)
