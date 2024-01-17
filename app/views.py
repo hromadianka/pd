@@ -9,10 +9,10 @@ from django.utils.html import strip_tags
 from django.db.models import Q
 import locale
 
-locale.setlocale(
-    category=locale.LC_ALL,
-    locale="Ukrainian"
-)
+# locale.setlocale(
+#     category=locale.LC_ALL,
+#     locale="Ukrainian"
+# )
 
 def str_list_topics(topics_from_db):
     TOPICS = ['news', 'theory', 'protests']
