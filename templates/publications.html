@@ -4,45 +4,80 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+{% include "head.html" %}
 <head>
-    <meta charset="utf-8" />
-    <title>Пряма Дія: Публікації</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+  <style>
+      .masthead {
+        height: 70vh;
+        min-height: 500px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+  </style>
+	<script>
+		$(function () {
+			$(document).scroll(function () {
+				var $nav = $(".pd-navbar");
+				$nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+			});
+		});
+	</script>
 </head>
 <body>
+    
+    {% include "navbar.html" %}
+
     <header>
-        <a href="/"><img src="{% static 'img/logo.png' %}" alt="" /></a>
-        <ul>
-            <li><a href="/">Про нас</a></li>
-            <li><a href="/publications" class="active">Публікації</a></li>
-        </ul>
-        <form action="https://forms.gle/nzo8eoXaxBobfbyo8/"><button>ВСТУПИТИ</button></form>
+        <div id="news-header-image" class="image-background">
+          <div class="container-fluid px-0 h-100">
+            <div class="row mx-0 h-100">
+              <div class="col-12 text-center text-white text-break">
+                <h1 style="text-transform: uppercase; letter-spacing: 5px; margin-top: 180px;">публікації</h1>
+							</div>
+							<svg class="mt-auto px-0" viewBox="0 0 10 1">
+								<path d="M 0 0 C 0 1, 10 1, 10 0 M 10 0 L 10 1, 0 1, 0 0" fill="#e1e1e1"/>
+							</svg>
+            </div>
+          </div>
+        </div>
     </header>
+		
     <main>
-        <h1>Публікації</h1>
-        {% for publication in publications reversed %}
-        <div class="publication">
-            {% if publication.image %}
-            <a href="/publications/{{ publication.id }}"><img src="{{ publication.image.url }}" alt="" /></a>
-            {% endif %}
-            <a href="/publications/{{publication.id}}" style="text-decoration: none"><h2>{% autoescape off %}{{publication.heading}}{% endautoescape %}</h2></a>
-            <p>{% autoescape off %}{{publication.text|truncatechars:300|linebreaks}}{% endautoescape %}</p>
-        </div>
-        {% endfor %}
+
+				<div style="padding-top: 100px; padding-bottom: 50px;">
+					<div class="container p-0 w-75 text-break">
+						{% for thriple in publications %}
+						<div class="row">
+							{% for publication in thriple %}
+							
+							<div class="col-xl col-lg p-0 mx-2 mb-5">
+								<a href="/publications/{{publication.id}}">
+								<div class="card publications h-100">
+								
+								{% if publication.image %}
+								<!-- !!!!!!Return back .image.url  -->
+								<img class="card-img-top publication-image" src="{{ publication.image.url }}" alt="" />
+								{% endif %}
+								<div class="card-body">
+									<h4 class="card-title">{{ publication.heading | safe }}</h4>
+									<div class="container text-center" style="text-transform: capitalize;">
+										<hr />
+										<div class="row">
+											<div class="col">{{ publication.topics_legible | safe }}</div>
+											<div class="col">{{ publication.date_legible | safe }}</div>
+										</div>
+									</div>
+								</div>
+								</a>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+						
+						{% endfor %}
     </main>
-    <footer>
-        <div>
-            <p>Незалежна студентська профспілка "Пряма Дія"</p>
-        </div>
-        <div class="links">
-            <a href="https://www.facebook.com/priama.diia/"><img src="{% static 'img/footer-facebook.png' %}" alt="" /></a>
-            <a href="https://t.me/priama_diia"><img src="{% static 'img/footer-telegram.png' %}" alt="" /></a>
-            <a href="https://www.instagram.com/priama_diia/"><img src="{% static 'img/footer-instagram.png' %}" alt="" /></a>
-            <a href="https://twitter.com/PriamaDiia/"><img src="{% static 'img/footer-twitter.png' %}" alt="" /></a>
-        </div>
-    </footer>
+    
+    {% include "footer.html" %}
 </body>
 </html>

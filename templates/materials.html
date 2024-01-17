@@ -1,0 +1,135 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+{% include "head.html" %}
+<head>
+    <script>
+        $(function () {
+            $(document).ready(function () {
+                var $nav = $(".pd-navbar");
+                $nav.toggleClass('scrolled');
+            });
+        });
+    </script>
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <main>
+
+        <div class="container-fluid ">
+
+            <!-- <div class="row" style="min-height: 100vh; background-color: #FF55D4;">
+                <div class="d-xl-none d-lg-none" style="height:150px;"></div>
+                <div class="col-xl-6 col-lg-6 text-center text-break my-auto" style=" color: white;">
+                    <h6 style="text-transform: uppercase;">маніфест</h6>
+                    <h1 class="mb-3 meterial-name">Студентство — це кров Університету</h1>
+                    <h1>«</h1><br>
+                    <p class="px-5" style="font-style: italic;">
+                        Ба більше, студентство завжди було, є і буде частиною більшого — робітничого руху. Студентський рух по праву може вважатися не просто боротьбою за кращі умови навчання, а невід’ємною частиною масштабнішого руху за звільнення людини.
+                    </p>
+                    <h1>»</h1>
+                </div>
+                <div class="col-xl-6 col-lg-6 p-0 text-center">
+                    <div
+                      class="bg-image h-100"
+                      style="
+                        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+                                            url('/static/img/manifesto_mockup.jpg');
+                        background-color: #cccccc;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        position: relative;
+                        min-height: 400px;
+                        display: flex;
+                        align-items: center;
+                      "
+                    >
+                    <a class="pd-btn-white p-2" style="position: relative; left: 45%;background-color: white;" href="{% static 'pdf/priama-diia-manifesto_students-are-blood-of-the-university.pdf' %}" target="_new">
+                        Читати
+                      </a>    
+                    </div>
+                    
+                </div>
+            </div> -->
+
+            <div class="row" style="min-height: 100vh; background-color: #FF55D4;">
+                <div class="d-xl-none d-lg-none" style="height:150px;"></div>
+                <div class="col-xl-6 col-lg-6 text-center text-break my-auto" style=" color: white;">
+                    <h6 style="text-transform: uppercase;">брошура</h6>
+                    <h1 class="mb-3 meterial-name">Психологічне насилля з боку викладачів</h1>
+                    <h1>«</h1><br>
+                    <p class="px-5" style="font-style: italic;">
+                        Позиція викладача – це завжди владна позиція. Викладач у програмі дисципліни визначає, що саме студенти та студентки вивчатимуть, задає тон обговоренням семінарів, визначає форми контролю і зрештою оцінює
+                        студентів. Проте останні не є безправними та можуть спільними діями впливати як на окремого викладача, так і на всю систему освіти. 
+                    </p>
+                    <h1>»</h1>
+                </div>
+                <div class="col-xl-6 col-lg-6 p-0 text-center">
+                    <div
+                      class="bg-image h-100"
+                      style="
+                        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+                                            url('/static/img/leaflet_nasyllia_mockup.jpg');
+                        background-color: #cccccc;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        position: relative;
+                        min-height: 400px;
+                        display: flex;
+                        align-items: center;
+                      "
+                    >
+                    <a class="pd-btn-white p-2" style="position: relative; left: 45%;background-color: white;" href="{% static 'pdf/psycholohichne-nasyllia-z-boku-vykladatchiv.pdf' %}" target="_new">
+                        Читати
+                      </a>    
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="row align-items-center" style="height: 100vh; background-color: #FF55D4;">
+                <div class="d-xl-none d-lg-none" style="height:150px;"></div>
+                <div class="col-xl-6 col-lg-6 text-center text-break" style="background-color: #FF55D4; color: white;">
+                    <h6 style="text-transform: uppercase;">брошура</h6>
+                    <h1 class="mb-3" style="font-size: 3.3em;">Психологічне насилля з боку викладачів</h1>
+                    <h1>«</h1><br>
+                    <p class="px-5" style="font-style: italic;">
+                        Позиція викладача – це завжди владна позиція. Викладач у програмі дисципліни визначає, що саме студенти та студентки вивчатимуть, задає тон обговоренням семінарів, визначає форми контролю і зрештою оцінює
+                        студентів. Проте останні не є безправними та можуть спільними діями впливати як на окремого викладача, так і на всю систему освіти. 
+                    </p>
+                    <h1>»</h1>
+                    <a href="{% static 'pdf/psycholohichne-nasyllia-z-boku-vykladatchiv.pdf' %}" target="_new">sd</a>
+                </div>
+                <div class="col-xl-6 col-lg-6 p-0 text-center h-100">
+                    <div
+                      class="bg-image h-100"
+                      style="
+                        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+                                            url('/static/img/leaflet_nasyllia_mockup.jpg');
+                        background-color: #cccccc;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        position: relative;
+                      "
+                    >
+                      <a class="pd-btn-white p-2" style="position: relative; top: 45%; background-color: white;" href="{% static 'pdf/priama-diia-manifesto_students-are-blood-of-the-university.pdf' %}" target="_new">
+                        Читати
+                      </a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+    </main>
+
+    {% include "footer.html" %}
+    
+</body>
+</html>

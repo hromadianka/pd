@@ -1,43 +1,59 @@
 ﻿{% load static %}
 
-
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+{% include "head.html" %}
 <head>
-    <meta charset="utf-8" />
-    <title>Пряма Дія: Публікації</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <style>
+        .masthead {
+          height: 70vh;
+          min-height: 500px;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+    </style>
+    <script>
+        $(function () {
+            $(document).ready(function () {
+                var $nav = $(".pd-navbar");
+                $nav.toggleClass('scrolled');
+            });
+        });
+    </script>
 </head>
 <body>
-    <header>
-        <a href="/"><img src="{% static 'img/logo.png' %}" alt="" /></a>
-        <ul>
-            <li><a href="/">Про нас</a></li>
-            <li><a href="/publications" class="active">Публікації</a></li>
-        </ul>
-        <form action="https://forms.gle/nzo8eoXaxBobfbyo8/"><button>ВСТУПИТИ</button></form>
+    {% include "navbar.html" %}
+
+    {% if publication.image %}
+    <header class="masthead" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.0), #e1e1e1), url('{{ publication.image.url | safe }}');">
+        <div class="container h-100 w-75">
+          <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+              <h1 class="fw-light text-center display-3" style="color: black;">{{ publication.heading | safe }}</h1>
+              <h5 class="fw-light text-center mt-4" style="text-transform: capitalize;">{{ publication.date_legible | safe }}</h5>
+            </div>
+          </div>
+        </div>
     </header>
+    {% endif %}
+    
     <main>
-        <h1>{% autoescape off %}{{ publication.heading }}{% endautoescape %}</h1>
-        {% if publication.image %}
-        <img src="{{ publication.image.url }}" alt="" class="publication-full-img" />
-         {% endif %}
-        <p>{% autoescape off %}{{ publication.text }}{% endautoescape %}</p>
+
+        <div class="container-md mb-5 text-break">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-10 col-sm-11 col-xs-11">
+                    <p class="article-text"> {{ publication.text | safe }} </p>
+                </div>
+            </div>
+            
+            
+        </div>
+        
     </main>
-    <footer>
-        <div>
-            <p>Незалежна студентська профспілка "Пряма Дія"</p>
-        </div>
-        <div class="links">
-            <a href="https://www.facebook.com/priama.diia/"><img src="{% static 'img/footer-facebook.png' %}" alt="" /></a>
-            <a href="https://t.me/priama_diia"><img src="{% static 'img/footer-telegram.png' %}" alt="" /></a>
-            <a href="https://www.instagram.com/priama_diia/"><img src="{% static 'img/footer-instagram.png' %}" alt="" /></a>
-            <a href="https://twitter.com/PriamaDiia/"><img src="{% static 'img/footer-twitter.png' %}" alt="" /></a>
-        </div>
-    </footer>
+
+    {% include "footer.html" %}
+    
 </body>
 </html>

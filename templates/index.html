@@ -3,67 +3,133 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+{% include "head.html" %}
 <head>
-    <meta charset="utf-8" />
-    <title>Пряма Дія</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+  <script>
+    $(function () {
+      $(document).scroll(function () {
+        var $nav = $(".pd-navbar");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      });
+    });
+</script>
 </head>
 <body>
     <header>
-        <a href="/"><img src="{% static 'img/logo.png' %}" alt="" /></a>
-        <ul>
-            <li><a href="/" class="active">Про нас</a></li>
-            <li><a href="/publications">Публікації</a></li>
-        </ul>
-        <form action="https://forms.gle/nzo8eoXaxBobfbyo8/"><button>ВСТУПИТИ</button></form>
+      {% include "navbar.html" %}
+
+        <div id="pd-header-background">
+          <div class="container h-100">
+            <div class="row h-100 align-items-center">
+              <div class="col-12 text-center text-white">
+                <h3 style="padding-bottom: 30px;">Незалежна студентська профспілка «Пряма дія»</h1>
+                <h1>ЗНАННЯ НЕ ТОВАР,</h1>
+                <h1 style="padding-bottom: 30px;">УНІВЕР НЕ БАЗАР!</h1>
+                <form class="form-inline" action="https://forms.gle/nzo8eoXaxBobfbyo8/">
+                  <button class="pd-btn-white">Долучитися</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
     </header>
-    <main>
-        <h1>Про нас</h1>
-        <p>«Пряма дія» — це ліва студентська профспілка, яка поділяє принципи рівності, лібертарної педагогіки і виступає проти комерціалізації освіти.</p>
-        <div class="images">
-            <div>
-                <img src="{% static 'img/map.jpg' %}" alt="" />
-                <img src="{% static 'img/stolik.jpg' %}" alt="" />
+
+    <div style="background-color: white; padding-top: 100px; padding-bottom: 50px;">
+      <div class="container text-break">
+
+        <div class="row">
+          <div class="col-xl-8 col-lg-8 text-center" style="height: 500px;">
+          <div
+              class="bg-image h-100"
+              style="
+                background-image: url('{{ latest_topic.image.url }}');
+                background-color: #cccccc;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+              "
+            ></div>
+          </div>
+          <div class="col-xl-4 col-lg-4">
+            <a href="/publications/{{ latest_topic.id }}"><h2>{{ latest_topic.heading | safe }}</h2></a>
+            <p class="publication-date">{{ latest_topic.date_legible | safe }}</p>
+            <hr class="lead-break" />
+            <p>
+              {{ latest_topic.text | truncatechars:300 | linebreaks | safe}}
+            </p>
+            <a href="/publications/{{ latest_topic.id }}">Читати далі</a>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+
+          {% for topic in latest_topics %}
+            {% if forloop.counter <= 3 %}
+            <div class="col-xl-4 col-lg-4 px-3">
+              <div class="topic-card">
+                <a href="/publications/{{ topic.id }}"><h5>{{ topic.heading | safe }}</h5></a>
+                <p class="publication-date">{{ topic.date_legible | safe }}</p>
+                <hr class="lead-break" />
+                <p>
+                  {{ topic.text | truncatechars:300 | linebreaks | safe}}
+                </p>
+                <a href="/publications/{{ topic.id }}">Читати далі</a>
+              </div>  
             </div>
-            <div>
-                <img src="{% static 'img/protest.jpg' %}" alt="" />
-            </div>
+            {% endif %}
+          {% endfor %}
         </div>
-    </main>
-    <footer>
-        <div>
-            <p>Незалежна студентська профспілка "Пряма Дія"</p>
+      </div>
+    </div>
+
+    <div class="container-fluid p-0 text-center">
+      <div class="row align-items-center" id="problems-feedback-background">
+        <div class="col-12">
+          <a class="pd-btn-white px-5 py-3" style="color:white; text-transform: uppercase; font-size:2vw;" href="https://forms.gle/9uUDP6J3ziAnk6Qs7" target="_new">повідомити про проблему</a>
         </div>
-        <div class="links">
-            <a href="https://www.facebook.com/priama.diia/"><img src="{% static 'img/footer-facebook.png' %}" alt="" /></a>
-            <a href="https://t.me/priama_diia"><img src="{% static 'img/footer-telegram.png' %}" alt="" /></a>
-            <a href="https://www.instagram.com/priama_diia/"><img src="{% static 'img/footer-instagram.png' %}" alt="" /></a>
-            <a href="https://twitter.com/PriamaDiia/"><img src="{% static 'img/footer-twitter.png' %}" alt="" /></a>
+      </div>
+    </div>
+    
+    <div class="container" style="margin-top:100px;">
+      <div class="row">
+        <div class="col">
+          <h2 class="who-are-we mb-3" style="text-transform: uppercase;">хто ми?</h2>
+          <p class="mb-5">
+            <b>«Пряма дія»</b> — це незалежна студентська профспілка, яка поділяє принципи рівності, лібертарної педагогіки та виступає проти комерціалізації освіти.
+            Ми дотримуємось демократичної і антибюрократичної структури та надаємо простір для консолідації лівого студентства в Україні.
+          </p>
+          <!-- <a class="pd-btn-black p-3" href="{% url 'materials' %}">
+            Маніфест
+          </a> -->
+          <br>
+          <img src="{% static 'svg/cat_marching.svg' %}" style="width: 50%;" alt="">
         </div>
-    </footer>
-            <style>
-                @media (min-width: 1000px) {
-                    .images img {
-                        margin-top: 15px;
-                        height: fit-content;
-                        width: 100%;
-                    }
-                    .images {
-                        display: flex;
-                        justify-content: space-between;
-                    }
-                    .images div {
-                        width: 49%;
-                    }
-                }
-                @media (min-width: 1000px) {
-                    .images img {
-                        margin-bottom: 25px;
-                    }
-                }
-        </style>
+        <div class="col">
+          <div class="mb-5">
+            <h3 class="who-are-we">Безкоштовна освіта</h3>
+            <p>
+              Освіта не є привілеєм. У сучасних суспільствах вона, а особливо вища, є запорукою процвітання держави. Виробництво, комерція й інші сфери людського життя сучасних країн покладаються на технології та знання, без яких існування людини неможливе. Отримування та створення знань студентством — це спільний інтерес усього суспільства, отже, навчання повинне бути доступним усім і кожній.
+            </p>
+          </div>
+          <div class="mb-5">
+            <h3 class="who-are-we">Протидія комерціалізації освіти</h3>
+            <p>
+              Боротьба проти комерціалізації освіти та науки, виступаємо проти перетворення знання на товар, а володіння ними — на привілей. Зокрема підтримуємо ідею вільного та безкоштовного доступу до наукових матеріалів. Антикапіталістична освіта для нас — це освіта, яка сприяє всебічному творчому розвитку особистості, а не вмонтовує людські створіння у громіздку й безособову машинерію капіталу.
+            </p>
+          </div>
+          <div>
+            <h3 class="who-are-we">Інклюзивність</h3>
+            <p>
+              Боротьба проти будь-якої дискримінації незалежно від класу, гендеру, віку, етнічної та релігійної приналежності, сексуальної орієнтації, регіону походження, стану здоров’я та соціального статусу.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pd-protests-poster-design"></div>
+
+    {% include "footer.html" %}
 </body>
 </html>

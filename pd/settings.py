@@ -25,11 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY=1
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["priama-diia-742d5ddc1d1a.herokuapp.com", "127.0.0.1", "www.priama-diia.org"]
+ALLOWED_HOSTS = ["priama-diia-742d5ddc1d1a.herokuapp.com", "127.0.0.1", "192.168.0.177", "www.priama-diia.org"]
 
 
 # Application definition
@@ -42,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'storages'
+    'storages',
+    'bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -89,7 +92,6 @@ DATABASES = {
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -134,8 +136,6 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 from google.oauth2 import service_account
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'credential.json'))
@@ -147,3 +147,4 @@ GS_BUCKET_NAME = 'priama-diia'
 MEDIA_ROOT = "media/"
 UPLOAD_ROOT = 'media/uploads/'
 MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+# MEDIA_URL = 'media/'

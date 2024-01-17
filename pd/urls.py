@@ -25,11 +25,7 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('publications', views.publications, name='publications'),
-    path('publications/<str:pk>', views.publication, name='publication'),
-    path('signin', views.signin, name='signin'),
-    path('publish', views.publish, name='publish')
+    path('', include('app.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

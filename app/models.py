@@ -11,6 +11,8 @@ class Publication(models.Model):
     heading = models.TextField(default='', blank=True)
     text = models.TextField(default='', blank=True)
     image = models.ImageField(upload_to='media/', height_field=None, width_field=None, blank=True, null=True)
+    topics = models.TextField(default='', blank=True)
+    date = models.DateTimeField() 
 
     def __str__(self):
         return str(self.heading)
