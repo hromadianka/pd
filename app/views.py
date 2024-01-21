@@ -41,7 +41,8 @@ def index(request):
 
     for p in publications_by_date:
         if type(p.text) == bytes:
-            p.text = strip_tags(p.text.decode('utf-8'))
+            p.text = p.text.decode('utf-8')
+        p.text = strip_tags(p.text)
         p.date_legible = legible_date(p.date)
 
     latest_publication = publications_by_date[0]
