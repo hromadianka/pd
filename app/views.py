@@ -24,11 +24,6 @@ def str_list_topics(topics_from_db):
     TOPICS2STR = {'news': 'новини', 'theory': 'теорія', 'protests': 'протести', 'analysis': 'аналіз', 'history': 'історія'}
     return list(map(lambda x: TOPICS2STR[x], filter(lambda x: x in TOPICS, map(str.strip, topics_from_db.split(',')))))
 
-def str_list_topics(topics_from_db):
-    TOPICS = ['news', 'theory', 'protests']
-    TOPICS2STR = {'news': 'новини', 'theory': 'теорія', 'protests': 'протести'}
-    return list(map(lambda x: TOPICS2STR[x], filter(lambda x: x in TOPICS, map(str.strip, topics_from_db.split(',')))))
-
 def str_topics(topics_from_db):
     return ", ".join(str_list_topics(topics_from_db))
 
