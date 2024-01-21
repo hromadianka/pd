@@ -9,10 +9,20 @@ from django.utils.html import strip_tags
 from django.db.models import Q
 import locale
 
-# locale.setlocale(
-#     category=locale.LC_ALL,
-#     locale="Ukrainian"
-# )
+def ukr_month_str(date):
+    ukr_months = ['січень', 'лютий', 'березень', 'квітень', 'травень', 'червень', 'липень', 'серпень',
+                  'вересень', 'жовтень', 'листопад', 'грудень']
+    return ukr_months[date.month - 1]
+
+def legible_date(date):
+    res = date.strftime("%B %d, %Y")
+    month_word_end = res.find(' ')
+    return ukr_month_str(date) + res[month_word_end:]
+
+def str_list_topics(topics_from_db):
+    TOPICS = ['news', 'theory', 'protests']
+    TOPICS2STR = {'news': 'новини', 'theory': 'теорія', 'protests': 'протести'}
+    return list(map(lambda x: TOPICS2STR[x], filter(lambda x: x in TOPICS, map(str.strip, topics_from_db.split(',')))))
 
 def str_list_topics(topics_from_db):
     TOPICS = ['news', 'theory', 'protests']
@@ -32,7 +42,7 @@ def index(request):
     for p in publications_by_date:
         if type(p.text) == bytes:
             p.text = strip_tags(p.text.decode('utf-8'))
-        p.date_legible = p.date.strftime("%B %d,  %Y")
+        p.date_legible = legible_date(p.date)
 
     latest_publication = publications_by_date[0]
      
@@ -45,7 +55,6 @@ def publications(request):
     search_publication = request.GET.get('search')
     if search_publication:
         publications = Publication.objects.filter(Q(heading__icontains=search_publication) | Q(text__icontains=search_publication))
-        print(len(publications))
     else:
         publications = Publication.objects.all()
 
@@ -54,7 +63,7 @@ def publications(request):
     for p in publications:
         if type(p.text) == bytes:
             p.text = p.text.decode('utf-8')
-        p.date_legible = p.date.strftime("%B %d,  %Y")
+        p.date_legible = legible_date(p.date)
         p.topics_legible = str_topics(p.topics)
 
     test_pubs = []
@@ -86,7 +95,7 @@ def publication (request, pk):
 
     if type(publication.text) == bytes:
         publication.text = publication.text.decode('utf-8')
-        publication.date_legible = publication.date.strftime("%B %d,  %Y")
+        publication.date_legible = legible_date(publication.date)
 
     return render(request, 'publication.html', {'publication': publication})
 

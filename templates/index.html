@@ -56,7 +56,7 @@
             <p class="publication-date">{{ latest_topic.date_legible | safe }}</p>
             <hr class="lead-break" />
             <p>
-              {{ latest_topic.text | truncatechars:300 | linebreaks | safe}}
+              {{ latest_topic.text | striptags | truncatechars:300 | linebreaks | safe}}
             </p>
             <a href="/publications/{{ latest_topic.id }}">Читати далі</a>
           </div>
