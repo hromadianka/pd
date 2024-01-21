@@ -34,6 +34,9 @@
             });
         });
     </script>
+    <meta property="og:image" content="{{ publication.image.url }}"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ publication.heading | safe }}"/>
 </head>
 <body>
     {% include "navbar.html" %}
