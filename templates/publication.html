@@ -44,7 +44,7 @@
 				<img width="100%" height="500px" style="object-fit: cover;" src="{{ publication.image.url }}" alt="">
 			</div>
 			<div class="publication-header-title">
-				<h1 class="display-3 text-center" style="color: black;">Поміняли освіту на кредит?</h1>
+				<h1 class="display-3 text-center" style="color: black;">{{ publication.heading | safe }}</h1>
       	<h5 class="mt-4 text-center" style="text-transform: capitalize;"> {{ publication.date_legible | safe }} </h5>
 			</div>
 		</div>
