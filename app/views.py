@@ -82,7 +82,7 @@ def publication (request, pk):
 
     if type(publication.text) == bytes:
         publication.text = publication.text.decode('utf-8')
-        publication.date_legible = legible_date(publication.date)
+    publication.date_legible = legible_date(publication.date)
 
     return render(request, 'publication.html', {'publication': publication})
 
