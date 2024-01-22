@@ -25,6 +25,10 @@
 			top: 200px;
 			width: 60vw;
 		}
+        #publication-content > img {
+			max-width: 100%;
+		    height: auto;
+		}
     </style>
     <script>
         $(function () {
@@ -57,7 +61,7 @@
 
         <div class="container-md mb-5 text-break">
             <div class="row justify-content-center">
-                <div class="col-lg-7 col-md-10 col-sm-11 col-xs-11">
+                <div id="publication-content" class="col-lg-7 col-md-10 col-sm-11 col-xs-11">
                     <p class="article-text"> {{ publication.text | safe }} </p>
                 </div>
             </div>
