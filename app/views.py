@@ -9,6 +9,11 @@ from django.utils.html import strip_tags
 from django.db.models import Q
 import locale
 
+# locale.setlocale(
+#     category=locale.LC_ALL,
+#     locale="Ukrainian"
+# )
+
 def ukr_month_str(date):
     ukr_months = ['січень', 'лютий', 'березень', 'квітень', 'травень', 'червень', 'липень', 'серпень',
                   'вересень', 'жовтень', 'листопад', 'грудень']
@@ -20,8 +25,8 @@ def legible_date(date):
     return ukr_month_str(date) + res[month_word_end:]
 
 def str_list_topics(topics_from_db):
-    TOPICS = ['news', 'theory', 'protests', 'analysis', 'history']
-    TOPICS2STR = {'news': 'новини', 'theory': 'теорія', 'protests': 'протести', 'analysis': 'аналіз', 'history': 'історія'}
+    TOPICS = ['news', 'theory', 'protests']
+    TOPICS2STR = {'news': 'новини', 'theory': 'теорія', 'protests': 'протести'}
     return list(map(lambda x: TOPICS2STR[x], filter(lambda x: x in TOPICS, map(str.strip, topics_from_db.split(',')))))
 
 def str_topics(topics_from_db):
@@ -36,8 +41,7 @@ def index(request):
 
     for p in publications_by_date:
         if type(p.text) == bytes:
-            p.text = p.text.decode('utf-8')
-        p.text = strip_tags(p.text)
+            p.text = strip_tags(p.text.decode('utf-8'))
         p.date_legible = legible_date(p.date)
 
     latest_publication = publications_by_date[0]
@@ -71,10 +75,18 @@ def publications(request):
         test_pubs[-1].append(p)
         i = (i + 1) % 3
 
+    
+
     return render(request, 'publications.html', {'publications': test_pubs})
 
 
-def publication (request, pk):
+
+
+
+def publication(request, pk):
+    # publication = Publication.objects.get(id=pk)
+    
+    # SAMODEL
     publications = Publication.objects.all()
     publication = None
     for p in publications:
@@ -82,12 +94,18 @@ def publication (request, pk):
 
     if type(publication.text) == bytes:
         publication.text = publication.text.decode('utf-8')
-    publication.date_legible = legible_date(publication.date)
+        publication.date_legible = legible_date(publication.date)
 
     return render(request, 'publication.html', {'publication': publication})
 
 def materials(request):
     return render(request, 'materials.html')
+
+def branches(request):
+    return render(request, 'branches.html')
+
+def game(request):
+    return render(request, 'game.html')
 
 def signin(request):
     if request.method == 'POST':
