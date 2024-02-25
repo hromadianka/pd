@@ -20,5 +20,5 @@ class Publication(models.Model):
         return str(self.heading)
     
     def get_url_token(self):
-        return self.id if self.slug is None else self.slug
+        return self.id if self.slug is None or self.slug == '' else self.slug
 
