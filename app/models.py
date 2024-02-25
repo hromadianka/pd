@@ -14,7 +14,11 @@ class Publication(models.Model):
     image = models.ImageField(upload_to='media/', height_field=None, width_field=None, blank=True, null=True)
     topics = models.TextField(default='', blank=True)
     date = models.DateTimeField(default=datetime.now, blank=True) 
+    slug = models.SlugField(default='', null=False)
 
     def __str__(self):
         return str(self.heading)
+    
+    def get_url_token(self):
+        return self.id if self.slug is None else self.slug
 

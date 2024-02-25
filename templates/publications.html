@@ -52,7 +52,7 @@
 							{% for publication in thriple %}
 							
 							<div class="col-xl col-lg p-0 mx-2 mb-5">
-								<a href="/publications/{{publication.id}}">
+								<a href="/publications/{{ publication.get_url_token }}">
 								<div class="card publications h-100">
 								
 								{% if publication.image %}

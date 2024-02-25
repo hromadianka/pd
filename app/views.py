@@ -71,20 +71,14 @@ def publications(request):
         test_pubs[-1].append(p)
         i = (i + 1) % 3
 
-    
-
     return render(request, 'publications.html', {'publications': test_pubs})
 
-
-
-
-
-def publication(request, pk):
-
-    publications = Publication.objects.all()
-    publication = None
-    for p in publications:
-        if uuid.UUID(pk) == p.id: publication = p
+def publication(request, url_token):
+    publication = Publication.objects.filter(slug=url_token).first()
+    if publication is None:
+        publications = Publication.objects.all()
+        for p in publications:
+            if uuid.UUID(url_token) == p.id: publication = p
 
     if type(publication.text) == bytes:
         publication.text = publication.text.decode('utf-8')
@@ -122,13 +116,14 @@ def publish(request):
     if request.method == 'POST':
         heading = request.POST['heading']
         text = request.POST['text']
+        slug = request.POST['slug']
         
         # Перевіряємо, чи вибраний файл у формі
         if 'image' in request.FILES:
             image = request.FILES['image']
-            publication = Publication.objects.create(heading=heading, text=text, image=image)
+            publication = Publication.objects.create(heading=heading, text=text, image=image, slug=slug)
         else:
-            publication = Publication.objects.create(heading=heading, text=text)
+            publication = Publication.objects.create(heading=heading, text=text, slug=slug)
         
         publication.save()
 

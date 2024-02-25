@@ -52,13 +52,13 @@
             ></div>
           </div>
           <div class="col-xl-4 col-lg-4">
-            <a href="/publications/{{ latest_topic.id }}"><h2>{{ latest_topic.heading | safe }}</h2></a>
+            <a href="/publications/{{ latest_topic.get_url_token }}"><h2>{{ latest_topic.heading | safe }}</h2></a>
             <p class="publication-date">{{ latest_topic.date_legible | safe }}</p>
             <hr class="lead-break" />
             <p>
               {{ latest_topic.text | striptags | truncatechars:300 | linebreaks | safe}}
             </p>
-            <a href="/publications/{{ latest_topic.id }}">Читати далі</a>
+            <a href="/publications/{{ latest_topic.get_url_token }}">Читати далі</a>
           </div>
         </div>
 
@@ -68,13 +68,13 @@
             {% if forloop.counter <= 3 %}
             <div class="col-xl-4 col-lg-4 px-3">
               <div class="topic-card">
-                <a href="/publications/{{ topic.id }}"><h5>{{ topic.heading | safe }}</h5></a>
+                <a href="/publications/{{ topic.get_url_token }}"><h5>{{ topic.heading | safe }}</h5></a>
                 <p class="publication-date">{{ topic.date_legible | safe }}</p>
                 <hr class="lead-break" />
                 <p>
                   {{ topic.text | truncatechars:300 | linebreaks | safe}}
                 </p>
-                <a href="/publications/{{ topic.id }}">Читати далі</a>
+                <a href="/publications/{{ topic.get_url_token }}">Читати далі</a>
               </div>  
             </div>
             {% endif %}
@@ -84,7 +84,7 @@
     </div>
 
     <div class="container-fluid p-0 text-center">
-      <div class="row align-items-center" id="problems-feedback-background">
+      <div class="row align-items-center mx-0" id="problems-feedback-background">
         <div class="col-12">
           <a class="pd-btn-white px-5 py-3" style="color:white; text-transform: uppercase; font-size:2vw;" href="https://forms.gle/9uUDP6J3ziAnk6Qs7" target="_new">повідомити про проблему</a>
         </div>

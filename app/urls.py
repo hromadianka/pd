@@ -6,7 +6,7 @@ from app import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('publications', views.publications, name='publications'),
-    path('publications/<str:pk>', views.publication, name='publication'),
+    path('publications/<slug:url_token>', views.publication, name='publication'),
     path('signin', views.signin, name='signin'),
     path('publish', views.publish, name='publish'),
     path('materials', views.materials, name='materials'),
