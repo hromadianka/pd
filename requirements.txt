@@ -13,3 +13,5 @@ django-storages
 boto3
 google-cloud-storage
 google-auth
+cloudinary
+django-cloudinary-storage
