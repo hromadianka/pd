@@ -15,6 +15,9 @@ import os
 import dj_database_url
 import storages
 import boto3
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +32,7 @@ SECRET_KEY=1
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["priama-diia-742d5ddc1d1a.herokuapp.com", "127.0.0.1", "192.168.0.177", "priama-diia.org", "www.priama-diia.org"]
 
@@ -43,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'cloudinary_storage',
     'app',
     'storages'
 ]
@@ -127,23 +132,18 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+# Настройки медиафайлов с Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Устанавливаем MEDIA_URL для Cloudinary
+MEDIA_URL = os.environ.get("CLOUDINARY_MEDIA_URL", "/media/")
+
+# Настроим Cloudinary из переменной окружения
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
+    secure=True
 )
-
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-from google.oauth2 import service_account
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    os.path.join(BASE_DIR, 'credential.json'))
-
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-
-GS_PROJECT_ID = 'caramel-primer-353913'
-GS_BUCKET_NAME = 'priama-diia'
-MEDIA_ROOT = "media/"
-UPLOAD_ROOT = 'media/uploads/'
-MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
-# MEDIA_URL = 'media/'
